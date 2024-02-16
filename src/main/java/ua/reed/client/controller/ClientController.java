@@ -21,7 +21,7 @@ public class ClientController {
     private final RestTemplate restTemplate;
 
     @GetMapping("/public")
-    public ResponseEntity<String> getByPublicIp(@RequestParam("publicApi") final String publicIp) {
+    public ResponseEntity<String> getByPublicIp(@RequestParam("publicIp") final String publicIp) {
         URI uri = UriComponentsBuilder.fromHttpUrl(publicIp.concat(STATS_ENDPOINT)).build().toUri();
         return this.restTemplate.getForEntity(uri, String.class);
     }
